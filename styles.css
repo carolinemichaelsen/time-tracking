@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --blue: hsl(246, 80%, 60%);
     --work: hsl(15, 100%, 70%);
@@ -17,5 +23,155 @@
 }
 
 body {
+    width: 100%;
+    display: grid;
     font-size: 18px;
+    background-color: var(--v-dark-blue);
+    color: #fff;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+@media screen and (min-width: 500px) {
+    .activities {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1frs));
+    }
+}
+
+.profile {
+    background-color: var(--desaturated-blue);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.profile-img {
+    max-width: 2.5rem;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    justify-self: end;
+}
+
+.profile-info {
+    justify-self: start;
+    font-weight: 500;
+    line-height: 1.2rem;
+}
+
+.profile-info h3 {
+    font-weight: 300;
+}
+
+.periods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    font-size: small;
+    margin-left: 0.7rem;
+}
+
+.periods a {
+    color: var(--desaturated-blue);
+}
+
+.activities {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, 1fr);
+    row-gap: 1rem;
+    align-items: center;
+    justify-items: center;
+    margin: 3rem auto;
+}
+
+.activity-icon {
+    grid-column: 2/4;
+}
+
+.activity-icon>img {
+    max-width: 3rem;
+    align-self: end;
+    justify-self: end;
+}
+
+.container-info-act {
+    background-color: var(--dark-blue);
+    max-width: 15rem;
+    border-radius: 10px;
+    grid-column: 1/4;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: .9rem;
+}
+
+.container-info-act:hover {
+    cursor: pointer;
+    background-color: var(--desaturated-blue);
+}
+
+.work {
+    background-color: var(--work);
+}
+
+.play {
+    background-color: var(--play);
+}
+
+.study {
+    background-color: var(--study);
+}
+
+.exercise {
+    background-color: var(--exercise);
+}
+
+.social {
+    background-color: var(--social);
+}
+
+.self-care {
+    background-color: var(--self-care);
+}
+
+.top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-weight: 400;
+    font-size: x-small;
+}
+
+.top>img {
+    max-width: 1rem;
+    justify-self: right;
+    margin-top: .5rem;
+}
+
+.end {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: x-large;
+    font-weight: 300;
+    line-height: 1.5rem;
+}
+
+.time-window {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: x-large;
+    font-weight: 300;
+    line-height: 1.5rem;
+}
+
+.end p:nth-last-child(1) {
+    justify-self: right;
+    font-size: x-small;
+    color: var(--pale-blue)
+}
+
+.last-week {
+    justify-self: right;
+    font-size: x-small;
+    color: var(--pale-blue)
 }
