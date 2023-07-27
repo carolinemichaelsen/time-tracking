@@ -7,7 +7,7 @@
 }
 
 :root {
-    --blue: hsl(246, 80%, 60%);
+    --profile: hsl(246, 80%, 60%);
     --work: hsl(15, 100%, 70%);
     --play: hsl(195, 74%, 62%);
     --study: hsl(348, 100%, 68%);
@@ -24,66 +24,140 @@
 
 body {
     width: 100%;
-    display: grid;
-    font-size: 18px;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-height: 100vh;
+    padding: 1rem;
     background-color: var(--v-dark-blue);
-    color: #fff;
     font-family: 'Rubik', sans-serif;
+    font-size: 18px;
     font-weight: 300;
-    font-size: 0.8rem;
+    color: #fff;
+}
+
+section.activity-tracker {
+    display: flex;
+    gap: 1rem;
+    padding: 4rem;
 }
 
 @media screen and (min-width: 500px) {
-    .activities {
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 1frs));
+    section.activity-tracker {
+        grid-row: 1/3;
+        display: flex;
     }
 }
 
-.profile {
-    background-color: var(--desaturated-blue);
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+
+/* --- PROFILE --- */
+
+.section.profile-menu {
+    display: flex;
 }
+
+@media screen and (min-width: 500px) {
+    .profile-card {
+        padding: 1.4rem 2.9rem 8rem 2.9rem;
+        flex-flow: column nowrap;
+        align-items: start;
+/*         gap: 4rem;
+ */        flex: auto;
+        border-radius: 1rem 1rem 0 0;
+    }
+}
+
+.profile-card {
+    border-radius: 1rem 1rem 0 0;
+    background-color: var(--profile);
+    height: 15rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
 .profile-img {
-    max-width: 2.5rem;
-    border: 3px solid #fff;
+    max-width: 6.4rem;
+    border: 0.3rem solid #fff;
     border-radius: 50%;
-    justify-self: end;
 }
 
 .profile-info {
     justify-self: start;
-    font-weight: 500;
-    line-height: 1.2rem;
+    font-weight: 300;
 }
 
 .profile-info h3 {
     font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 2rem;
+
 }
+
+/* --- PERIOD ---  */
 
 .periods {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    justify-items: center;
-    font-size: small;
-    margin-left: 0.7rem;
+    background-color: var(--dark-blue);
+    display: flex;
+    padding: 2.4rem 2rem 2.5rem 3.3rem;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: 0 0 1rem 1rem;
 }
 
-.periods a {
+.period-selection {
+    padding: .5rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 1rem;
     color: var(--desaturated-blue);
+    cursor: pointer;
+    transition: color 250ms;
 }
 
-.activities {
+.period-selection:hover, .period-selection:active {
+    color: white
+}
+
+
+/* ( ͡❛ ͜ʖ ͡❛) ( ͡❛ ͜ʖ ͡❛) ( ͡❛ ͜ʖ ͡❛) ( ͡❛ ͜ʖ ͡❛) ( ͡❛ ͜ʖ ͡❛) ( ͡❛ ͜ʖ ͡❛) ( ͡❛ ͜ʖ ͡❛) */
+
+/* --- TIMECARDS --- */
+
+section.container-timecards {
+    display: flex;
+    position: relative;
+    flex-flow: row wrap;
+}
+
+@media screen and (min-width: 500px) {
+    section.container-timecards {
+        display: flex;
+        position: relative;
+        flex-flow: row wrap;
+    }
+  }
+
+
+/* ------ ACTIVITY ------- */
+
+.activity {
+    display: flex;
+    padding: 1rem;
+    flex-flow: row nowrap;
+}
+
+.activity-bg {
+    border-radius: 10px;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(7, 1fr);
-    row-gap: 1rem;
-    align-items: center;
-    justify-items: center;
-    margin: 3rem auto;
+    max-width: 15rem;
+    grid-template-rows: 25% 75%;
+    height: 8rem;
+    width: 10rem;
 }
 
 .activity-icon {
@@ -96,20 +170,49 @@ body {
     justify-self: end;
 }
 
-.container-info-act {
+/* --- TEXT ---  */
+
+.activity-info {
     background-color: var(--dark-blue);
     max-width: 15rem;
-    border-radius: 10px;
+    border-radius: 8px;
     grid-column: 1/4;
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    padding: .9rem;
+    grid-template-columns: 1fr;
+    padding: .7rem;
 }
 
-.container-info-act:hover {
+.activity-info:hover {
     cursor: pointer;
     background-color: var(--desaturated-blue);
 }
+
+.activity-title {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-weight: 400;
+    font-size: x-small;
+}
+
+.activity-title > img {
+    max-width: 1rem;
+    justify-self: right;
+    margin-top: .5rem;
+}
+
+.total-time {
+    font-size: 32px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.2rem;
+}
+
+.last-week {
+    font-size: x-small;
+    color: var(--pale-blue)
+}
+
+/* --- ACTIVITY ICONS --- */
 
 .work {
     background-color: var(--work);
@@ -133,45 +236,4 @@ body {
 
 .self-care {
     background-color: var(--self-care);
-}
-
-.top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-weight: 400;
-    font-size: x-small;
-}
-
-.top>img {
-    max-width: 1rem;
-    justify-self: right;
-    margin-top: .5rem;
-}
-
-.end {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-size: x-large;
-    font-weight: 300;
-    line-height: 1.5rem;
-}
-
-.time-window {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-size: x-large;
-    font-weight: 300;
-    line-height: 1.5rem;
-}
-
-.end p:nth-last-child(1) {
-    justify-self: right;
-    font-size: x-small;
-    color: var(--pale-blue)
-}
-
-.last-week {
-    justify-self: right;
-    font-size: x-small;
-    color: var(--pale-blue)
 }
